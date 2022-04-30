@@ -1,0 +1,233 @@
+\documentclass[8pt,reqno]{amsart}
+\usepackage{graphicx}
+\usepackage{fullpage}
+
+%\usepackage{mathpazo}
+%\usepackage{euler}
+
+
+\graphicspath{ {./urpimages/} }
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsfonts,amssymb,latexsym,amsmath, amsthm}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{comment}
+\excludecomment{confidential}
+\usepackage{enumitem}
+\usepackage{caption}
+\theoremstyle{definition}
+\usepackage[linktocpage=true]{hyperref}
+%% this allows for theorems which are not automatically numbered
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{obs}{Observation}
+\newtheorem{exercise}{Exercise}[section]
+\newcommand{\heg}{\text{Heg}}
+\newtheorem{rem}{Remark}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{disc}{Discussion}[section]
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\ext}{Ext}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\coker}{coker}
+\newcommand{\degg}{\textup{deg}}
+\newtheorem{ex}{Example}[section]
+\usepackage{hyperref}
+\usepackage{xcolor}
+\definecolor{winered}{rgb}{0.5,0,0}
+%% The above lines are for formatting.  In general, you will not want to change these.
+%%Commands to make life easier
+\newcommand{\RR}{\mathbf R}
+\newcommand{\aff}{\mathbf A}
+\newcommand{\ff}{\mathbf F}
+\usepackage{mathtools}
+\newcommand{\cccC}{\mathbf C}
+\newcommand{\oo}{\mathcal{O}}
+% \newcommand{\ZZ}{\mathbf Z}
+\newcommand{\pring}{k[x_1, \ldots , x_n]}
+\newcommand{\polyring}{[x_1, \ldots , x_n]}
+\newcommand{\poly}{\sum_{\alpha} a_{\alpha} x^{\alpha}} 
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+% \newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbf C}
+\newcommand{\complex}{\mathbf {C}_\bullet}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbf Z}
+\newcommand{\cat}{\mathbf{C}}
+\newcommand{\ca}{\mathbf}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbf Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\V}{\mathbf V}
+\newcommand{\tex}{\TeX}
+\newcommand{\sm}{\setminus} 
+\newcommand{\dom}{\text{Dom}}
+\newcommand{\lcm}{\text{lcm}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\ran}{\text{Ran}}
+\newcommand{\pp}{\prime}
+\newcommand{\lra}{\longrightarrow} 
+\newcommand{\lmt}{\longmapsto} 
+\newcommand{\xlra}{\xlongrightarrow} 
+\newcommand{\gap}{\; \; \;}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\p}{\mathfrak{p}} 
+\newcommand{\rmod}{\textit{R}-\textbf{Mod}}
+\newcommand{\idealP}{\mathfrak{P}}
+\newcommand{\ideala}{\mathfrak{a}}
+\newcommand{\idealb}{\mathfrak{b}}
+\newcommand{\idealA}{\mathfrak{A}}
+\newcommand{\idealB}{\mathfrak{B}}
+\newcommand{\X}{\mathfrak{X}}
+\newcommand{\idealF}{\mathfrak{F}}
+\newcommand{\idealm}{\mathfrak{m}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\ccc}{\mathfrak{C}}
+\usepackage{float}
+\newcommand{\idealM}{\mathfrak{M}}
+\usetikzlibrary{decorations.pathmorphing} 
+%Itemize gap:
+
+% \pagecolor{black}
+% \color{white}
+% Author info
+
+\title{urp}
+\author{Juan Serratos}
+\begin{document}
+\maketitle
+
+\section{Presentation} 
+If not stated otherwise, $A$ is a commutative ring with $1$, and if $\p$ is a prime ideal of $A$, to avoid confusion, we denote the corresponding point of $\spec A$ by $[\p]$. The collection of all prime ideals of $A$ is denoted by $\spec A$ and is said to be the \textbf{spectrum} of $A$. As of now, all we have is a set theoretic description of it, however, we may endow $\spec A$ with a topology, and additionally, with a sheaf of rings on it, i.e. the structure sheaf.
+\begin{disc}
+	For a ring $A$, we can't think of elements of $A$ as functions into some fixed field $k$. But there is still an analogy between the elements $f \in A$ and some sort of fucntion on $\spec A$. If $[ \p ] \in \spec A$, the localization $A_\p$ is a local ring with maximal ideal $\p A_\p := \mathfrak{m}_\p $, and one has the \textit{residue field} $\kappa (\p) = A_\p/ \mathfrak{m}_\p$, which is also used of in terms of points of $\spec A$, i.e. $\kappa ([p])$. The element $f$ reduced moduluo $\p$ gives an element $f ([\p]) \in \kappa (\p)$, which is said to be the `value' of $f$ at $[\p] $; additionally, we can see that $f([\p])$ if and only if $f \in \p$. To reiterate, the value at the point $[\mathfrak{p}]$ will be $f \Mod{ \p}$. For example, the ``function" $5 \in \zz$ on $\spec \zz$ takes the value $1 \Mod{2}$ at $[ (2)]$ and $2 \Mod{ 3}$ at $[(3)]$, and $0 \Mod{ 5}$ at $[(5)]$. This last example is important, Ravi Vakil states: ``An element $a$ of the ring lying in a prime ideal $\p$' translate to 'a function $a$ that is $0$ at the point $[\p ]$" or a function $a$ vanishing at the point $[\p ]$'". As we did above, $5 \in \zz$ lies in the prime ideal $(5)$ and so we have $5$ vanishes at the point $(5)$, or you could equivalently say that $5$ is $0$ at the point $(5)$. 
+	
+	When considering $\zz$, the residue field at a closed point $((p))$ is given by $\kappa((p)) = \zz_{(p)}/ (p) \zz_{(p)} = \ff_p$, and the residue field at $(0)$ produces $\qq$, i.e. $\kappa ((0)) = \qq$. To add onto the last paragraph, the elements $f \in \zz$ give rise to so-called `regular functions' into the various residue fields. For instance, $f = 17 \in \zz$ takes the values $f((0)) = 17 $, $f((2)) = \overline{1}, f((3)) = \overline{2}, f((5)) = \overline{2}, f((7)) = \overline{3}$, ..., in the fields $\qq, \ff_2, \ff_3, \ff_5, \ff_7$,..., respectively. 
+\end{disc}
+
+\begin{defi}
+An \textbf{affine scheme} is a locally ringed space $(X, \mathcal{O}	_X)$ such that there is an isomorphism of locally ringed spaces $(X, \mathcal{O}_X) \simeq (\spec A, \mathcal{O}_{\spec A}) $ for some ring $A$. 
+\end{defi}
+\begin{ex}$\aff _\cc ^1 := \spec \cc[x]$. As we're working with $\cc[x]$, then we know that all its ideals are principal, and additionally, as $\cc [x]$ is a PID then an ideal is prime if and only if it is maximal. By Hilbert's Nullstellensatz, all maximal ideals in $\cc[x]$ are of the form $(x-a)$ where $a \in \cc$. Thus all prime ideals in $\spec \cc[x]$ are of the form $(x-a)$ with $a \in \cc$. 
+\begin{confidential}
+	
+The functions on $\aff_\cc^1$ are polynomials. So, for example, if we take the function $f(x) =x^2 - 3x+ 1 \in \cc [x]$, then we may think about what it's values are at certain points: $f$ at the point $[(x-1)]$, which we think of as the point $1 \in \cc$, gives us $f(x) \equiv -1 \Mod{ (x-1)}$, which is equivalent to $f(1)$. The value of $f$ at $[(x-1)]$ is simply $f$ itself, i.e. $f(x) \equiv f(x) \Mod{ 0}$.
+\end{confidential}
+	
+\end{ex}
+
+\begin{rem}
+The simplest affine schemes to write down are of the form $(\spec R, \mathcal{O}_{\spec R}) $ for some ring $R$, or for a given ring $A$, and $x_1, x_2, \ldots, x_n$ indeterminants, $\spec A[x_1, x_2, \ldots, x_n ] := \aff^n_A$ (note that we are going to omitting the strucutre sheaf in the notation when talk about affine schemes of this form simply for simplicity). This defining property of an affine scheme where we take points from $\spec A[x_1, x_2, \ldots, x_n ]$ will be very important as to how we approach any sort of visualization of a scheme. 
+\end{rem}
+For the purposes of this presentation we will consider the affine scheme $\spec \zz [x]$. Sometimes this scheme is called an arithmetic scheme, and as David Mumford has called it, \textit{the arithmetic surface}. Much of this naming comes from the, I guess, arithmetic and geometric properties the scheme possesses. 
+
+To approach visualizing what $\spec \zz [x]$ looks like we first need to describe the points of it are (recall that we talk about points in $\spec$ in a topological manner, and then perscribe their corresponding prime ideals in the set-theoretic defintion of $\spec$). Now if we take some point $[ \p ] \in \spec \zz [x] $, then what could it be?  As we have the natural inclusion $\zz \to \zz [x] $, then we have an induced map of schemes $\pi \colon \spec \zz [x]  \to \spec \zz$. To establish the prime ideals of $\spec \zz [x] $ we will look at the fibers of this map. We do this by pulling this back to $\spec \kappa ([p]) \to \spec \zz$. We have to establish two cases: if $[ \p ] = [0] $ or $ [ \p ] \neq [0]$. If $[p] = 0$, then the residue field of $[0]$ is simply $\zz_{(0)}/ (0) \zz_{(0)} = \qq$. If $[(p)] \neq 0$, then the residue field is given by $\kappa ([p]) = \zz_{(p)} / (p) \zz_{(p)} \simeq \zz / p \zz \simeq \ff_p$. Thus the fibers of the map is given by $\spec (k([p]) \times_{\spec \zz} \spec \zz [x]$. For $[p] = [0]$, we have $\spec \qq \times_{\spec \zz} \spec \zz[x]  = \spec (\zz [x] \otimes_\zz \qq ) = \spec \qq [x]$. When $[p] \neq [0]$, we have $\spec \ff_p \times_{\spec \zz} \spec \zz [x]  = \spec (\ff_p  \otimes_\zz \zz [x] ) = \spec \ff_p [x]$. Thus we have an association to the points in $\spec \zz [x]$: the prime ideals are in bijection with $\spec \ff_p [x]$ and $\spec \qq_[x]$, and essentially what we did here was describe $\pi^{-1} ( (p )) = (p) \cap \zz \in  \spec \zz $ and $\pi^{-1} ((0))$. This means that $\spec\zz[x]$ has prime ideals:  
+\begin{itemize}
+	\item $(0)$; 
+	\item principal prime ideals $(f)$ where $f$ is either a prime ideal $p$, or a $\qq$-irreducible integral polynomial written so that its coefficients have greatest common divisor $1$; and 
+	\item maximal ideals $(p, f)$, $p$ a prime and $f$ a monic integral polynomial irreducible modulo $p$. 
+\end{itemize}
+\begin{theorem}
+Let $X$ be a scheme and let $A$ be a ring. To every morphism $f \colon X \to \spec A$, associate the homomorphism: $$R \simeq \Gamma (\spec A, \mathcal{O}_{\spec A}) \xrightarrow{f^\ast} \Gamma (X, \mathcal{O}_X).$$ Then this induces a bijection between $\Hom (X, \spec A)$ in the category of schemes and $\Hom (R, \Gamma (X, \mathcal{O}_X))$ in the category of rings. 	
+\end{theorem}
+\begin{coro}
+The category of affine schemes is equivalent to the category of commutative rings with, with arrows reversed. 	
+\end{coro}
+\begin{rem}
+Let $X$ be any scheme. By Theorem 1.1., there is a unique map $\pi \colon X \to \spec \zz$, induced by 	the unique homomorphism $\pi^\ast \colon \zz \to \Gamma (X, \mathcal{O}_X)$. Moreover, on the level of set theory, we morphism $\pi \colon X \to \spec \zz$ is given by $\pi \colon x \mapsto [\cha (\kappa (x))]$. If we we have $\pi (x) = y$, then we have an inclusion map $$\kappa (y) \xrightarrow{\pi_x^\ast} \kappa (x) = \begin{cases}
+ \zz /p \zz 	\\
+ \text{or} \\
+ \qq 
+ \end{cases}
+$$
+and so we have $\cha \kappa (x)  = p> 0 \implies \pi (x) = [ (p) ]$ or $\cha \kappa (x) = 0 \implies \pi (x) = [(0)]$. Hence every scheme $X$ is a kind of fibered object, made out of separate schemes, with the possibility of being empty, of each characteristic : 
+$$X \times_{\spec \zz} \spec \begin{cases}
+	\zz / p \zz \\
+	\text{or} \\
+	\qq
+\end{cases}
+$$ This is how we will understand $\spec \zz [x]$: we will depict it as a union of affine lines $\aff_{\zz / p\zz}^1$ and $\aff_\qq^1$. 
+\end{rem}
+\begin{figure}[H]
+\includegraphics[scale=.6]{mumford.png} 
+\caption{Describing this image and what it actually depicts will take up, likely, most of the presentation, as Mumford packs a lot of information into this picture in some subtle ways. For example, the closed point $[(3, x^2+1)]$ on $\aff_{\zz / 3 \zz}^1$. The reason that this closed point is given a bigger `dot' than, say, $[(3, x+2)]$, is because as we quotient them: $\zz [x] / (3, x+ 2) = (\zz / 3 \zz)[x] / (x+2) = \zz / 3\zz \simeq \ff_3$ and  $\zz [x] / (3, x^2+ 1) = (\zz / 3 \zz)[x] / (x^2+1) = \ff_3 [x]/(x^2+1) = \ff_{3^2}$. The reasoning for the last quotient is that as $x^2+1$ remains irreducible over $\ff_3$, then we have that the quotient is no longer $\ff_3$ but instead a quadratic extension of it, i.e. the field consisting of nine elements.  And so we continue with line of reasoning to attribute larger dots to those closed points whose produce greater finite fields when quotiented by $\zz[x]$. }
+\end{figure}
+
+
+
+\newpage
+\section{Background} 
+\subsection{Zariski Topology}
+
+\begin{defi}
+For ever subset $ S \subseteq A$, let 
+$$ V(S) = \{ x \in \spec A \colon  f(x) = 0 \; \text{for all} \; f \in S \} = \{ [\p] \colon \p \; \text{prime ideal and} \; S \subseteq \p \}.$$ We call this set the \textbf{Vanishing set} of $S$, and it defines a topology known as the \textbf{Zariski topology}.
+\end{defi}
+The set has the following properties, which verify that $V(S)$ is indeed a topology of closed sets:
+\begin{itemize}
+	\item If $\ideala$ is the ideal generated by $S$, then $V(S) = V(\ideala)$, 
+	\item $S_1 \subseteq S_2 \implies V(S_2) \subseteq V(S_1)$,
+	\item $V (S) = \varnothing \Leftrightarrow [1 \text{is in the ideal generated by $S$}]$.
+	\item $V\left (\bigcup_\alpha S_\alpha \right) = \bigcap V (S_\alpha)$ for any family of subsets $S_\alpha$, and $V \left ( \sum_\alpha \ideala_\alpha \right) = \bigcap_\alpha V(\ideala_\alpha)$ for any family of ideals $\ideala_\alpha$. 
+	\item $V(\ideala_1 \cap \ideala_2) = V(\ideala_1) \cup V (\ideala_2)$.
+	\item $V (\ideala) = V (\sqrt{\ideala})$.
+\end{itemize}
+\begin{defi}
+For $f \in A$, 
+$$\spec A_f = \{ x \in \spec A \colon f(x) \neq 0 \} = \spec A - V(f).$$	
+\end{defi}
+
+Since $V(f)$ is closed, we have that $\spec A_f$ is open, and we call these the \textit{distinguished open subsets} of $\spec A$. 
+We have as a consequence of fourth and fifths bullets that we can take the sets $V (\ideala)$ to be the closed sets of a topology on $\spec A$,  that is, the Zariski topology we defined above. This set is also written (conicides) with commonly writing: for $f \in A$, define $D(f) = \{ [\p ] \in \spec A \colon f \notin \p \} = \{ [ \p ]\in \spec A \colon f( [\p]) \neq 0 \}$, i.e. the locus that doesn't vanish at $f$. In practice, some write $D(f \neq 0)$ to remind themselves of this definition. Moreover, these distinguished open sets form a base for the (Zariski) topology. 
+
+\begin{rem} The closed points of $\spec A$ are in bijection with the maximal ideals of $A$. A proof goes, loosely, as follows: by definition $[ \p ]$ is a closed point if and only if there is no other prime ideals containing $\p$ other than itself. But every prime ideal (in fact, every ideal) must be contained in some maximal ideal, and maximal ideals are prime. Similarily, the generic points of $\spec A$ correspond to the minimal prime ideals of $A$. It follows that $\spec A$ is irreducible if and only if $A$ has only one minimal prime ideal if and only if $\text{rad} \;A$ is a prime ideal.
+\end{rem}
+\subsection{Structure Sheaf}
+The next thing we seek to do is transform the ring $A$ into a whole sheaf of rings on $\spec A$, written $\mathcal{O}_{\spec A}$, and it is called the \textit{structure sheaf} of $\spec A$. For simplify notation, let $\mathfrak{X} = \spec A$. We ant to define rings $\mathcal{O}_\X (U)$ for general open sets. We skip a lot of the story here as this process goes to provide the main results: we seek to define $\mathcal{O}_\X (\X_f) = A_f$ = localization of $A$ with respect to the multiplcative system ${1, f, f^2, \ldots}$; or ring of fraction $a/f^n$, where $a \in A$ and $n \in \zz$. Ultimately, we get that $\mathcal{O}_\X$ is a sheaf of distinguished open sets, which extends to a sheaf on all open sets of $\X$. It stalks are simple to compute: if $x = [ \p] \in \X$, then, for all open $U$, 
+$$\mathcal{O}_{x, \X} = \varinjlim_{x \in U} \mathcal{O}_\X (U) = \varinjlim_{\substack{\text{dist. open $\X_f$}\\ f(x) = 0 }} = \varinjlim_{f \in A\setminus \p } = A_\p, $$ where $A_\p$ is the usual ring of fractions $a/f$, $a \in A$ and $f \in A \setminus \p$. We see here that $A_\p$ is a local ring, with associated maximal ideal $\mathfrak{m}_\p = \p A_\p = \kappa (x)$, and so the stalks of our structure sheaf are local rings, and the evalutation of functions $f \in A$ (as spoken in Discussion 1.1.) defined above is the map: $$ A = \mathcal{O}_\X (\X) \to \mathcal{O}_{x, \X} \to \kappa (x).$$
+\begin{confidential}
+\section{Background}
+
+\begin{ex}$\aff _\cc ^1 := \spec \cc[x]$. As we're working with $\cc[x]$, then we know that all its ideals are principal, and additionally, as $\cc [x]$ is a PID then an ideal is prime if and only if it is maximal. By Hilbert's Nullstellensatz, all maximal ideals in $\cc[x]$ are of the form $(x-a)$ where $a \in \cc$. Thus all prime ideals in $\spec \cc[x]$ are of the form $(x-a)$ with $a \in \cc$. 
+
+	
+
+
+\begin{figure}[H]
+\includegraphics[scale=.3]{cline.png} 
+\caption{A picture of $\spec \cc[x] = \aff^1_\cc .$ Note that we're including $(0)$ to be a prime ideal, however, it is obviously not maximal.   }
+\end{figure}
+
+
+\begin{rem}
+What we've done in the previous example is a common example of a generalization: Let $K$ be an algebraically closed field, then we define $\aff^1_K := \spec K[x]$. 	
+\end{rem}
+\begin{rem}
+$\aff^1_{\mathbf{F}_p} = \spec \mathbf{F}_p [x]$. As $\ff_p[x]$ is a Euclidean domain, so the prime ideals of $\ff_p [x]$ are of the form $(0)$ or $(f(x))$ where $f \in \ff_p [x]$ is an irreducible polynomial, which can be of any degree. 
+\end{rem}
+
+\begin{disc}
+We want describe the set $\spec K[x]_{(x)}$. Firstly we should identify that the space we're working with is $K[x]_{(x)}$, that is, we're localizing $K[x]$ at $(x)$, so we're localizing with respect to a prime ideal: $$K[x]_{(x)}= \left \{ \frac{f}{g} \colon f \in K[x], g \in K[x] \setminus (x) \right \} $$ Recall that for any commutative ring $A$ and prime ideal $\p$, the prime ideals of $A$ localized at $\p$ are in bijection with the primes of $R$ that are contained in $\p$. So our question is answered by looking at the prime ideals of $K[x]$ contained in $(x)$. We cannot have any prime ideals contained in $(x)$ however as all prime ideals in $K[x]$ are maximal, so it does not properly contain any prime ideal other than $(0)$. Thus the only prime ideals of $K[x]_{(x)}$ are $(x)$ and $(0)$. That is, $\spec K[x]_{(x)} = \{ (0), (x) \}$. 
+\end{disc}
+	
+\end{confidential}
+
+
+
+\end{document}
