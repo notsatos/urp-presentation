@@ -1,4 +1,4 @@
-\documentclass[8pt,reqno]{amsart}
+\documentclass[9pt,reqno]{amsart}
 \usepackage{graphicx}
 \usepackage{fullpage}
 
@@ -102,13 +102,15 @@
 \usepackage{float}
 \newcommand{\idealM}{\mathfrak{M}}
 \usetikzlibrary{decorations.pathmorphing} 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
 %Itemize gap:
 
 % \pagecolor{black}
 % \color{white}
 % Author info
 
-\title{urp}
+\title{Arithmetic Surface}
 \author{Juan Serratos}
 \begin{document}
 \maketitle
@@ -135,7 +137,7 @@ The functions on $\aff_\cc^1$ are polynomials. So, for example, if we take the f
 \begin{rem}
 The simplest affine schemes to write down are of the form $(\spec R, \mathcal{O}_{\spec R}) $ for some ring $R$, or for a given ring $A$, and $x_1, x_2, \ldots, x_n$ indeterminants, $\spec A[x_1, x_2, \ldots, x_n ] := \aff^n_A$ (note that we are going to omitting the strucutre sheaf in the notation when we talk about affine schemes of this form simply for simplicity). This defining property of an affine scheme where we take points from $\spec A[x_1, x_2, \ldots, x_n ]$ will be very important as to how we approach any sort of visualization of a scheme. 
 \end{rem}
-For the purposes of this presentation we will consider the affine scheme $\spec \zz [x]$. Sometimes this scheme is called an arithmetic scheme, and as David Mumford has called it, \textit{the arithmetic surface}. Much of this naming comes from the, I guess, arithmetic and geometric properties the scheme possesses. 
+For the purposes of this presentation we will consider the affine scheme $\spec \zz [x]$. Sometimes this scheme is called an arithmetic scheme, and as David Mumford has called it, \textit{the arithmetic surface}. 
 
 To approach visualizing what $\spec \zz [x]$ we first need to first describe what the points in it are. If we take some point $[ \p ] \in \spec \zz [x] $, then what could it be?  As we have the natural inclusion $\zz \to \zz [x] $, then we have an induced map of schemes $\pi \colon \spec \zz [x]  \to \spec \zz$. To establish the prime ideals of $\spec \zz [x] $ we will look at the fibers of this map. We do this by pulling this back to $\spec \kappa ([p]) \to \spec \zz$. We have to establish two cases: if $[ \p ] = [0] $ or $ [ \p ] \neq [0]$. If $[p] = 0$, then the residue field of $[0]$ is simply $\zz_{(0)}/ (0) \zz_{(0)} = \qq$. If $[(p)] \neq 0$, then the residue field is given by $\kappa ([p]) = \zz_{(p)} / (p) \zz_{(p)} \simeq \zz / p \zz \simeq \ff_p$. Thus the fibers of the map is given by $\spec (k([p]) \times_{\spec \zz} \spec \zz [x]$. For $[p] = [0]$, we have $\spec \qq \times_{\spec \zz} \spec \zz[x]  = \spec (\zz [x] \otimes_\zz \qq ) = \spec \qq [x]$. When $[p] \neq [0]$, we have $\spec \ff_p \times_{\spec \zz} \spec \zz [x]  = \spec (\ff_p  \otimes_\zz \zz [x] ) = \spec \ff_p [x]$. Thus we have an association to the points in $\spec \zz [x]$: the prime ideals are in bijection with $\spec \ff_p [x]$ and $\spec \qq_[x]$, and essentially what we did here was describe $\pi^{-1} ( (p )) = (p) \cap \zz \in  \spec \zz $ and $\pi^{-1} ((0))$. This means that $\spec\zz[x]$ has prime ideals:  
 \begin{itemize}
@@ -150,7 +152,7 @@ Let $X$ be a scheme and let $A$ be a ring. To every morphism $f \colon X \to \sp
 The category of affine schemes is equivalent to the category of commutative rings, with the arrows reversed.
 \end{coro}
 \begin{rem}
-Let $X$ be any scheme. By Theorem 1.1., there is a unique map $\pi \colon X \to \spec \zz$, induced by 	the unique homomorphism $\pi^\ast \colon \zz \to \Gamma (X, \mathcal{O}_X)$. Moreover, on the level of set theory, we have a morphism $\pi \colon X \to \spec \zz$ is given by $\pi \colon x \mapsto [\cha (\kappa (x))]$. If we we have $\pi (x) = y$, then we have an inclusion map $$\kappa (y) \xrightarrow{\pi_x^\ast} \kappa (x) = \begin{cases}
+Let $X$ be any scheme. By Theorem 1.1., there is a unique map $\pi \colon X \to \spec \zz$, induced by 	the unique homomorphism $\pi^\ast \colon \zz \to \Gamma (X, \mathcal{O}_X)$. Moreover, on the level of set theory, we have a morphism $\pi \colon X \to \spec \zz$ that is given by $\pi \colon x \mapsto [\cha (\kappa (x))]$. If we we have $\pi (x) = y$, then we have an inclusion map $$\kappa (y) \xrightarrow{\pi_x^\ast} \kappa (x) = \begin{cases}
  \zz /p \zz 	\\
  \text{or} \\
  \qq 
@@ -196,11 +198,13 @@ $$\spec A_f = \{ x \in \spec A \colon f(x) \neq 0 \} = \spec A - V(f).$$
 Since $V(f)$ is closed, we have that $\spec A_f$ is open, and we call these the \textit{distinguished open subsets} of $\spec A$. 
 We have as a consequence of fourth and fifths bullets that we can take the sets $V (\ideala)$ to be the closed sets of a topology on $\spec A$,  that is, the Zariski topology we defined above. This set is also written (conicides) with commonly writing: for $f \in A$, define $D(f) = \{ [\p ] \in \spec A \colon f \notin \p \} = \{ [ \p ]\in \spec A \colon f( [\p]) \neq 0 \}$, i.e. the locus that doesn't vanish at $f$. In practice, some write $D(f \neq 0)$ to remind themselves of this definition. Moreover, these distinguished open sets form a base for the (Zariski) topology. 
 
-\begin{rem} The closed points of $\spec A$ are in bijection with the maximal ideals of $A$. A proof goes, loosely, as follows: by definition $[ \p ]$ is a closed point if and only if there is no other prime ideals containing $\p$ other than itself. But every prime ideal (in fact, every ideal) must be contained in some maximal ideal, and maximal ideals are prime. Similarily, the generic points of $\spec A$ correspond to the minimal prime ideals of $A$. It follows that $\spec A$ is irreducible if and only if $A$ has only one minimal prime ideal if and only if $\text{rad} \;A$ is a prime ideal.
+\begin{rem} The closed points of $\spec A$ are in bijection with the maximal ideals of $A$. A proof goes, loosely, as follows: by definition $[ \p ]$ is a closed point if and only if there is no other prime ideals containing $\p$ other than itself. But every prime ideal (in fact, every ideal) must be contained in some maximal ideal, and maximal ideals are prime. Moreover, the generic points of $\spec A$ correspond to the minimal prime ideals of $A$. It follows that $\spec A$ is irreducible if and only if $A$ has only one minimal prime ideal if and only if $\text{rad} \;A$ is a prime ideal.
 \end{rem}
+\begin{rem} For the reader with Galois theory experience, for any field $k$, the closed points of $\aff^n_k = \spec k[x_1, x_2, \ldots, x_n]$ are in bijection with the Galois orbits in $\overline{k}^n$. As most of this paper speaks of $\spec \zz[x]$, the points of $\aff_{\ff_p}^1$ correspond to orbits of the action of the Galois group $\gal (\overline{\ff}_p / \ff_p )$ on $\ff_p$.
+\end{rem} 
 \subsection{Structure Sheaf}
 The next thing we seek to do is transform the ring $A$ into a whole sheaf of rings on $\spec A$, written $\mathcal{O}_{\spec A}$, and it is called the \textit{structure sheaf} of $\spec A$. For simplify notation, let $\mathfrak{X} = \spec A$. We ant to define rings $\mathcal{O}_\X (U)$ for general open sets. We skip a lot of the story here as this process goes to provide the main results: we seek to define $\mathcal{O}_\X (\X_f) = A_f$ = localization of $A$ with respect to the multiplcative system ${1, f, f^2, \ldots}$; or ring of fraction $a/f^n$, where $a \in A$ and $n \in \zz$. Ultimately, we get that $\mathcal{O}_\X$ is a sheaf of distinguished open sets, which extends to a sheaf on all open sets of $\X$; that is, $\Gamma (D(f), \mathcal{O}_\X) = A_f$, and, additionally, $\Gamma (\X , \mathcal{O}_\X) = A$. It stalks are simple to compute: if $x = [ \p] \in \X$, then, for all open $U$, 
-$$\mathcal{O}_{x, \X} = \varinjlim_{x \in U} \mathcal{O}_\X (U) = \varinjlim_{\substack{\text{dist. open $\X_f$}\\ f(x) = 0 }} = \varinjlim_{f \in A\setminus \p } = A_\p, $$ where $A_\p$ is the usual ring of fractions $a/f$, $a \in A$ and $f \in A \setminus \p$. We see here that $A_\p$ is a local ring, with associated maximal ideal $\mathfrak{m}_\p = \p A_\p = \kappa (x)$, and so the stalks of our structure sheaf are local rings, and the evalutation of functions $f \in A$ (as spoken in Discussion 1.1.) defined above is the map: $$ A = \mathcal{O}_\X (\X) \to \mathcal{O}_{x, \X} \to \kappa (x).$$
+$$\mathcal{O}_{x, \X} = \varinjlim_{x \in U} \mathcal{O}_\X (U) =  \varinjlim_{\substack{\text{dist. open $\X_f$}\\ f(x) = 0 }} \mathcal{O}_\X (\X_f)= \varinjlim_{f \in A\setminus \p } A_f= A_\p, $$ where $A_\p$ is the usual ring of fractions $a/f$, $a \in A$ and $f \in A \setminus \p$. We see here that $A_\p$ is a local ring, with associated maximal ideal $\mathfrak{m}_\p = \p A_\p = \kappa (x)$, and so the stalks of our structure sheaf are local rings, and the evalutation of functions $f \in A$ (as spoken in Discussion 1.1.) defined above is the map: $$ A = \mathcal{O}_\X (\X) \to \mathcal{O}_{x, \X} \to \kappa (x).$$
 \begin{confidential}
 \section{Background}
 
