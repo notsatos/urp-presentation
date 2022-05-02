@@ -11,6 +11,7 @@
 \usepackage{amsfonts,amssymb,latexsym,amsmath, amsthm}
 \usepackage{tikz-cd}
 \usepackage{mathrsfs}
+\usepackage{stmaryrd}
 \usepackage{comment}
 \excludecomment{confidential}
 \usepackage{enumitem}
@@ -110,7 +111,7 @@
 % \color{white}
 % Author info
 
-\title{Arithmetic Surface}
+\title{Modern Algebraic geometry: the Arithmetic Surface}
 \author{Juan Serratos}
 \begin{document}
 \maketitle
@@ -135,11 +136,11 @@ The functions on $\aff_\cc^1$ are polynomials. So, for example, if we take the f
 \end{ex}
 
 \begin{rem}
-The simplest affine schemes to write down are of the form $(\spec R, \mathcal{O}_{\spec R}) $ for some ring $R$, or for a given ring $A$, and $x_1, x_2, \ldots, x_n$ indeterminants, $\spec A[x_1, x_2, \ldots, x_n ] := \aff^n_A$ (note that we are going to omitting the strucutre sheaf in the notation when we talk about affine schemes of this form simply for simplicity). This defining property of an affine scheme where we take points from $\spec A[x_1, x_2, \ldots, x_n ]$ will be very important as to how we approach any sort of visualization of a scheme. 
+The simplest affine schemes to write down are of the form $(\spec R, \mathcal{O}_{\spec R}) $ for some ring $R$, or for a given ring $A$, and $x_1, x_2, \ldots, x_n$ indeterminants, $\spec A[x_1, x_2, \ldots, x_n ] := \aff^n_A$ (note that we are going to omitting the strucutre sheaf in the notation when we talk about affine schemes of this form simply for simplicity). 
 \end{rem}
 For the purposes of this presentation we will consider the affine scheme $\spec \zz [x]$. Sometimes this scheme is called an arithmetic scheme, and as David Mumford has called it, \textit{the arithmetic surface}. 
 
-To approach visualizing what $\spec \zz [x]$ we first need to first describe what the points in it are. If we take some point $[ \p ] \in \spec \zz [x] $, then what could it be?  As we have the natural inclusion $\zz \to \zz [x] $, then we have an induced map of schemes $\pi \colon \spec \zz [x]  \to \spec \zz$. To establish the prime ideals of $\spec \zz [x] $ we will look at the fibers of this map. We do this by pulling this back to $\spec \kappa ([p]) \to \spec \zz$. We have to establish two cases: if $[ \p ] = [0] $ or $ [ \p ] \neq [0]$. If $[p] = 0$, then the residue field of $[0]$ is simply $\zz_{(0)}/ (0) \zz_{(0)} = \qq$. If $[(p)] \neq 0$, then the residue field is given by $\kappa ([p]) = \zz_{(p)} / (p) \zz_{(p)} \simeq \zz / p \zz \simeq \ff_p$. Thus the fibers of the map is given by $\spec (k([p]) \times_{\spec \zz} \spec \zz [x]$. For $[p] = [0]$, we have $\spec \qq \times_{\spec \zz} \spec \zz[x]  = \spec (\zz [x] \otimes_\zz \qq ) = \spec \qq [x]$. When $[p] \neq [0]$, we have $\spec \ff_p \times_{\spec \zz} \spec \zz [x]  = \spec (\ff_p  \otimes_\zz \zz [x] ) = \spec \ff_p [x]$. Thus we have an association to the points in $\spec \zz [x]$: the prime ideals are in bijection with $\spec \ff_p [x]$ and $\spec \qq_[x]$, and essentially what we did here was describe $\pi^{-1} ( (p )) = (p) \cap \zz \in  \spec \zz $ and $\pi^{-1} ((0))$. This means that $\spec\zz[x]$ has prime ideals:  
+To approach visualizing what $\spec \zz [x]$ we first need to first describe what the points in it are. If we take some point $[ \p ] \in \spec \zz [x] $, then what could it be?  As we have the natural inclusion $\zz \to \zz [x] $, then we have an induced map of schemes $\pi \colon \spec \zz [x]  \to \spec \zz$. To establish the prime ideals of $\spec \zz [x] $ we will look at the fibers of this map. We do this by pulling this back to $\spec \kappa ([p]) \to \spec \zz$. We have to establish two cases: if $[ \p ] = [0] $ or $ [ \p ] \neq [0]$. If $[p] = 0$, then the residue field of $[0]$ is simply $\zz_{(0)}/ (0) \zz_{(0)} = \qq$. If $[(p)] \neq 0$, then the residue field is given by $\kappa ([p]) = \zz_{(p)} / (p) \zz_{(p)} \simeq \zz / p \zz \simeq \ff_p$. Thus the fibers of the map is given by $\spec (k([p]) \times_{\spec \zz} \spec \zz [x]$. For $[p] = [0]$, we have $\spec \qq \times_{\spec \zz} \spec \zz[x]  = \spec (\zz [x] \otimes_\zz \qq ) = \spec \qq [x]$. When $[p] \neq [0]$, we have $\spec \ff_p \times_{\spec \zz} \spec \zz [x]  = \spec (\ff_p  \otimes_\zz \zz [x] ) = \spec \ff_p [x]$. Thus we have an association to the points in $\spec \zz [x]$: the prime ideals are in bijection with $\spec \ff_p [x]$ and $\spec \qq_[x]$, and essentially what we did here was describe $\pi^{-1} ( (p )) = (p) \cap \zz \in  \spec \zz $ and $\pi^{-1} ((0))$. We should note here as that as we had a morphism $\pi$ between schemes, then for any point $[\ell] \in \spec \zz$, the fibered point $\spec \zz[x] \times_{\spec \zz} \spec (\kappa ([\ell])$ is homemorphic to the preimage $\pi^{-1} ([\ell])$.  This means that $\spec\zz[x]$ has prime ideals:  
 \begin{itemize}
 	\item $(0)$; 
 	\item principal prime ideals $(f)$ where $f$ is either a prime ideal $p$, or a $\qq$-irreducible integral polynomial written so that its coefficients have greatest common divisor $1$; and 
@@ -170,8 +171,22 @@ $$ This is how we will understand $\spec \zz [x]$: we will depict it as a union 
 \includegraphics[scale=.6]{mumford.png} 
 \caption{Describing this image and what it actually depicts will take up, likely, most of the presentation, as Mumford packs a lot of information into this picture in some subtle ways. For example, the closed point $[(3, x^2+1)]$ on $\aff_{\zz / 3 \zz}^1$. The reason that this closed point is given a bigger `dot' than, say, $[(3, x+2)]$, is because as we quotient them: $\zz [x] / (3, x+ 2) = (\zz / 3 \zz)[x] / (x+2) = \zz / 3\zz \simeq \ff_3$ and  $\zz [x] / (3, x^2+ 1) = (\zz / 3 \zz)[x] / (x^2+1) = \ff_3 [x]/(x^2+1) = \ff_{3^2}$. The reasoning for the last quotient is that as $x^2+1$ remains irreducible over $\ff_3$, then we have that the quotient is no longer $\ff_3$ but instead a quadratic extension of it, i.e. the field consisting of nine elements.  And so we continue with line of reasoning to attribute larger dots to those closed points whose produce greater finite fields $\ff_{p^n}$ when they are quotiented with $\zz[x]$. }
 \end{figure}
-
-
+\newpage 
+\begin{rem}($\spec \zz[x] \to \spec \zz$): 	
+\begin{itemize}
+	\item[(Generic Point: $(0)$)] In the top left corner we should notice the more than apparent generic point: it is the generic point, that is, as $(0)$ is a prime ideal of $\zz [x]$ (as it is an integral domain), then geometrically, it should contain all other geometric objects in the arithemetic plane. (The reason to draw it in the top right corner in the way that it is drawn is because it wouldn't make too much sense to only draw $[(0)]$ largely and then say everything is contained in it... we would get nothing from this!)
+	
+	\item[($\aff_\qq^1 = \spec \qq (x) $)] The geometric objects this ``affine line" represent geometric objects corresponding to principal prime ideals $(f(X))$, where $f(X)$ is a $\qq$-irreducible integral polynomial written so that its coefficients have $\gcd$ 1 (easier use that $f(X)$ is an irreducible integral polynomial as it would then be irreducible in $\qq[x]$ as well.). We should see this curve as being sort of the horizontal axis in the plane. The ``first" little scribble on this corresponds to the prime $(x)$, containg all polynomials divisible by $x$ so that when we divide it out we get, as expected, a domain $\zz[x]/ (x) \simeq \zz$. Additionally, the scribble above it corresponding to $(x^2+1)$, containg all polynomials divisble by $x^2+1$, ``which can be proved to be prime ideals of $\zz[x]$" by looking at the quotienting $\zz[x]/(x^2+1) \simeq \zz[i]$ we get another domain. The depictions of the points $[(x)]$ and $([x^2+1])$ have a necessary horizontal aspect to them as they need to encapsulate more information that just from $\aff_\qq^1$ but also from the other affine lines: $[(x)]$ depicts the fact that all other points lying on the line, to its left, belong it, and $[(x^2+1])$ does the same, but it has a stronger role because it must claim inclusion of all points lying on the quadratic it determines. So we see the the importance of $\aff_\qq^1$ having a horizontal aspect to it.
+	
+	\item[the prime ideals $(p)$] We also have vertical lines, those corresponding to $\aff_{\zz / p \zz}^1$, that have prime ideals $(p)$ all the way at the top as these principal prine ideals contain the polynomials, all of which coefficients are divisible by the prime number $p$. These are indeed prime ideals of $\zz[x]$ as their quotient $\zz[x]/(p) \simeq (\zz / p \zz)[x]$ are domains, being the ring of polynomials over the finite field $\zz / p \zz \simeq \ff_p$. ``The scribbles correspond to these prime ideals having a predominant vertical component (depicting the vertical lines)" and have uniform thickness for all prime numbers $p$ as each of them only has to claim ownership of the points lines that lie beneath them.
+	\item [$\mathfrak{m} = (p, f(X))$] These are the closed points of the plane as they are maximal ideals, and they are known to be of the form $\mathfrak{m} = (p, f(X))$, where $p$ is a prime number and $f(X)$ is an irreducible polynomial, which remains irreducible modulo $p$ (i.e. we reduce the coefficients of $f(X) \in \zz[x]$ by mod $p$ and we obtain an irreducible polynomial in $\ff_p [x]$). By the geometric/algebra we should see the maximal ideals to be the intersection of a horizational curve ($\aff_{\qq}^1)$ and the vertical lines $(\aff_{\zz/p \zz}^1)$. As maximal ideals do not contain any other prime ideals (think of the inclusion reversion) we don't associate a scribble to $\mathfrak{m}$ and we just depict it by a point in the plane, that is, the intersection-point of the horizontal curve with the vertical line determined by $\mathbf{m} = (p, f(X))$. However, the depiction given by Mumford stil doesn't treat all points equally. For example, the point corresponding to the maximal ideal $(3, x+2)$ depicted by a solid dot, while the maximal ideal $(p, x^2+1)$ is represented by the dotted circle below $(3, x+2)$. Mumford makes this distinction $[(3, x^2+1)]$ on $\aff_{\zz / 3 \zz}^1$. The reason that this closed point is given a bigger `dot' than, say, $[(3, x+2)]$, is because as we quotient them: $\zz [x] / (3, x+ 2) = (\zz / 3 \zz)[x] / (x+2) = \zz / 3\zz \simeq \ff_3$ and  $\zz [x] / (3, x^2+ 1) = (\zz / 3 \zz)[x] / (x^2+1) = \ff_3 [x]/(x^2+1) = \ff_{3^2}$. The reasoning for the last quotient is that as $x^2+1$ remains irreducible over $\ff_3$, then we have that the quotient is no longer $\ff_3$ but instead a quadratic extension of it, i.e. the field consisting of nine elements.  And so we continue with line of reasoning to attribute larger dots to those closed points whose produce greater finite fields $\ff_{p^n}$ when they are quotiented with $\zz[x]$. We make the depiction of a point on the vertical lines corresponding to the principal prime ideal $(p)$ when its residue field (that is, their quotient with $\zz[x]$) is the prime field $\ff_p$, and make large points depending wheter or not they produce greater prime fields $\ff_{p^n}^1$. 
+	\item[Direct Quote:] ``In fact, the ‘fat-point’ signs in Mumford’s treasure map are an attempt to depict the fact that an affine scheme contains a lot more information than just the set of all prime ideals. In fact, an affine scheme determines (and is determined by) a ``functor of points". That is, to every field (or even every commutative ring) the affine scheme assigns the set of its ‘points’ defined over that field (or ring). For example, the  $\ff_p$-points of $\spec \zz [x]$ re the solid $\cdot$ points on the vertical line  $(p)$, the  $\ff_p^2$ -points of $\spec \zz [x]$ are the solid $\cdot$ points and the slightly bigger $ \circ$ points on that vertical line, and so on." 
+\end{itemize}
+\end{rem}\newpage 
+\section{Eisenbud Interpretation} 
+\includegraphics[scale =.5]{eisenbud-geometry.png}
+``The 
+\newpage 
 
 \newpage
 \section{Background} 
@@ -205,32 +220,69 @@ We have as a consequence of fourth and fifths bullets that we can take the sets 
 \subsection{Structure Sheaf}
 The next thing we seek to do is transform the ring $A$ into a whole sheaf of rings on $\spec A$, written $\mathcal{O}_{\spec A}$, and it is called the \textit{structure sheaf} of $\spec A$. For simplify notation, let $\mathfrak{X} = \spec A$. We ant to define rings $\mathcal{O}_\X (U)$ for general open sets. We skip a lot of the story here as this process goes to provide the main results: we seek to define $\mathcal{O}_\X (\X_f) = A_f$ = localization of $A$ with respect to the multiplcative system ${1, f, f^2, \ldots}$; or ring of fraction $a/f^n$, where $a \in A$ and $n \in \zz$. Ultimately, we get that $\mathcal{O}_\X$ is a sheaf of distinguished open sets, which extends to a sheaf on all open sets of $\X$; that is, $\Gamma (D(f), \mathcal{O}_\X) = A_f$, and, additionally, $\Gamma (\X , \mathcal{O}_\X) = A$. It stalks are simple to compute: if $x = [ \p] \in \X$, then, for all open $U$, 
 $$\mathcal{O}_{x, \X} = \varinjlim_{x \in U} \mathcal{O}_\X (U) =  \varinjlim_{\substack{\text{dist. open $\X_f$}\\ f(x) = 0 }} \mathcal{O}_\X (\X_f)= \varinjlim_{f \in A\setminus \p } A_f= A_\p, $$ where $A_\p$ is the usual ring of fractions $a/f$, $a \in A$ and $f \in A \setminus \p$. We see here that $A_\p$ is a local ring, with associated maximal ideal $\mathfrak{m}_\p = \p A_\p = \kappa (x)$, and so the stalks of our structure sheaf are local rings, and the evalutation of functions $f \in A$ (as spoken in Discussion 1.1.) defined above is the map: $$ A = \mathcal{O}_\X (\X) \to \mathcal{O}_{x, \X} \to \kappa (x).$$
-\begin{confidential}
-\section{Background}
-
-\begin{ex}$\aff _\cc ^1 := \spec \cc[x]$. As we're working with $\cc[x]$, then we know that all its ideals are principal, and additionally, as $\cc [x]$ is a PID then an ideal is prime if and only if it is maximal. By Hilbert's Nullstellensatz, all maximal ideals in $\cc[x]$ are of the form $(x-a)$ where $a \in \cc$. Thus all prime ideals in $\spec \cc[x]$ are of the form $(x-a)$ with $a \in \cc$. 
-
-	
-
-
-\begin{figure}[H]
-\includegraphics[scale=.3]{cline.png} 
-\caption{A picture of $\spec \cc[x] = \aff^1_\cc .$ Note that we're including $(0)$ to be a prime ideal, however, it is obviously not maximal.   }
-\end{figure}
-
-
-\begin{rem}
-What we've done in the previous example is a common example of a generalization: Let $K$ be an algebraically closed field, then we define $\aff^1_K := \spec K[x]$. 	
-\end{rem}
-\begin{rem}
-$\aff^1_{\mathbf{F}_p} = \spec \mathbf{F}_p [x]$. As $\ff_p[x]$ is a Euclidean domain, so the prime ideals of $\ff_p [x]$ are of the form $(0)$ or $(f(x))$ where $f \in \ff_p [x]$ is an irreducible polynomial, which can be of any degree. 
-\end{rem}
-
-\begin{disc}
+\begin{defi}
+Let $X \to Y$ be a continuous map of topological space and let $\mathcal{F}$ be a presheaf on $X$. The \textbf{direct image} $\varphi_\ast \mathcal{F}$ is a presheaf on $Y$ defined by $$\varphi_\ast \mathcal{F}(U) = \mathcal{F}(\varphi^{-1} (U)).$$
+\end{defi}
+\begin{defi}
+A \textbf{ringed space} $(X, \mathcal{O}_X)$ consists of a topological space $X$ and a sheaf of rings $\mathcal{O}_X$ on $X$, called the \textbf{structure sheaf}. A \textbf{locally ringed space} is a ringed space $(X, \mathcal{O}_X)$ such that every stalk $\mathcal{O}_{X, x}$ is a local ring, $x \in X$. A \textbf{morphism of ringed spaces} $(X, \mathcal{O}_X) \to (Y, \mathcal{O}_Y)$ is a pair $(\varphi, \theta)$, where $\varphi \colon X \to Y$ is a continous map, and $ \theta \colon \mathcal{O}_Y \to \varphi_\ast \mathcal{O}_X
+$ is a map of sheaves. The pair $(\varphi, \theta)$ is a \textbf{morphism of locally ringed spaces}, if, additionally, each induced map of stalks $\theta^{\sharp}_x \colon \mathcal{O}_{Y, \varphi(x)} \to \mathcal{O}_{X, x}$ is a \textbf{local homomorphism} of local rings.
+\end{defi}
+\begin{lemma}
+There exists a unique sheaf $\mathcal{O}_X$ on $X = \spec A$ satisfying $$\mathcal{O}_X (D(f)) \simeq A_f, \; \text{for $f \in A$}.$$ Its stalks are $\mathcal{O}_{X, x} \simeq A_x (=A_{\mathfrak{j}_x})$.	
+\end{lemma}
+\begin{defi}
+A \textbf{scheme} is a ringed space $(X, \mathcal{O}_X)$ such that every point has an open \textbf{affine} neighbordhood 	$U$ (i.e. $(U, \mathcal{O}_X \mid_U)$ is an affine scheme). A \textbf{morphism} $(X, \mathcal{O}_X) \to (Y, \mathcal{O}_Y)$ is a morphism of locally ringed space.
+\end{defi}
+\begin{disc}[Simple Example]
 We want describe the set $\spec K[x]_{(x)}$. Firstly we should identify that the space we're working with is $K[x]_{(x)}$, that is, we're localizing $K[x]$ at $(x)$, so we're localizing with respect to a prime ideal: $$K[x]_{(x)}= \left \{ \frac{f}{g} \colon f \in K[x], g \in K[x] \setminus (x) \right \} $$ Recall that for any commutative ring $A$ and prime ideal $\p$, the prime ideals of $A$ localized at $\p$ are in bijection with the primes of $R$ that are contained in $\p$. So our question is answered by looking at the prime ideals of $K[x]$ contained in $(x)$. We cannot have any prime ideals contained in $(x)$ however as all prime ideals in $K[x]$ are maximal, so it does not properly contain any prime ideal other than $(0)$. Thus the only prime ideals of $K[x]_{(x)}$ are $(x)$ and $(0)$. That is, $\spec K[x]_{(x)} = \{ (0), (x) \}$. 
 \end{disc}
-	
-\end{confidential}
+\begin{defi}
+A ring homomorphism $\varphi B \to A$ gives rise to a morphism of affine schemes $X = \spec A $ and $Y = \spec B$: 
+$$(^a \varphi, \tilde{\varphi}) \colon (\spec A, \mathcal {O}_{ \spec A}\to (\spec B, \mathcal{O}_{\spec B}, \; \text{where}$$
+\begin{itemize}
+	\item $^a \varphi (x) = y$ if and only if $\mathfrak{j}_y = \varphi^{-1} (\mathfrak{j}_x)$ (i.e. $^a \varphi (\p) = \varphi^{-1} (\p))$;
+	\item $\tilde{\varphi} \colon \mathcal{O}_Y \to ^a \varphi_\ast \mathcal{O}_X$ is characterised by (for $g \in B$):
+\end{itemize}
+$$
+\begin{tikzcd}
+\mathcal O_Y(D(g)) \arrow[dd, no head, Rightarrow] \arrow[rrr, "\tilde{\varphi}(D(g))"] &  &  & \mathcal O_X (^a \varphi^{-1}(D(g)) \arrow[rrr, no head, Rightarrow] &  &  & \mathcal O_X (D(\varphi(g)) \arrow[dd, no head, Rightarrow] \\
+                                                                                        &  &  &                                                                      &  &  &                                                             \\
+B_g \arrow[rrrrrr, "b/g^n \mapsto \varphi (b)/\varphi (g)^n"]                                                                 &  &  &                                                                      &  &  & A_{\varphi (g)}                                            
+\end{tikzcd}
+$$
+\end{defi}
+
+\begin{rem}It turns out that every morphism of affine schemes is induced by a ring homomorphism.	
+\end{rem}
+\begin{prop}
+There is a canonical isomorphism 
+
+$$\Hom (\spec A, \spec B) \simeq \Hom (B, A).$$	
+\end{prop}
+\begin{coro}
+The functors \begin{align*}
+	A & \longmapsto \spec A \\ 
+	\mathcal O_X (X) &\longmapsfrom X
+\end{align*}
+define an arrow reversing equivalence of categories between the category of commutative rings and the category of affine schemes.
+\end{coro}
+More generally:
+\begin{prop}
+Let $\X$ be a scheme, and let $A$ be a ring. There is a canonical isomorphism 
+
+$$\Hom ( \X, \spec A) \simeq \Hom (A, \Gamma (\X)), $$ where $\Gamma (\X) = \mathcal O_\X (\X)$ is the global sections functor. 
+\end{prop}
+\begin{defi}
+Let $\varphi \colon X \to S$ be a morphism, and let $s \in S$. There exists a natural morphism $\spec \kappa (s) \to S$. The fibre of $\varphi$ over $s$ is $$X_s = X \times_S \spec \kappa (s).$$	
+\end{defi}
+
+\begin{rem}
+The fibre $X_s$ should be though of as $\varphi^{-1} (s)$, except that the above definition gives it a structure of a $\kappa (s)$-scheme.	
+\end{rem}
+
+
+
+
 
 
 
