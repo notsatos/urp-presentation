@@ -185,7 +185,7 @@ $$ This is how we will understand $\spec \zz [x]$: we will depict it as a union 
 \end{rem}\newpage 
 \section{Eisenbud Interpretation} 
 \includegraphics[scale =.5]{eisenbud-geometry.png}
-``The 
+
 \newpage 
 
 \newpage
@@ -237,8 +237,8 @@ A \textbf{scheme} is a ringed space $(X, \mathcal{O}_X)$ such that every point h
 We want describe the set $\spec K[x]_{(x)}$. Firstly we should identify that the space we're working with is $K[x]_{(x)}$, that is, we're localizing $K[x]$ at $(x)$, so we're localizing with respect to a prime ideal: $$K[x]_{(x)}= \left \{ \frac{f}{g} \colon f \in K[x], g \in K[x] \setminus (x) \right \} $$ Recall that for any commutative ring $A$ and prime ideal $\p$, the prime ideals of $A$ localized at $\p$ are in bijection with the primes of $R$ that are contained in $\p$. So our question is answered by looking at the prime ideals of $K[x]$ contained in $(x)$. We cannot have any prime ideals contained in $(x)$ however as all prime ideals in $K[x]$ are maximal, so it does not properly contain any prime ideal other than $(0)$. Thus the only prime ideals of $K[x]_{(x)}$ are $(x)$ and $(0)$. That is, $\spec K[x]_{(x)} = \{ (0), (x) \}$. 
 \end{disc}
 \begin{defi}
-A ring homomorphism $\varphi B \to A$ gives rise to a morphism of affine schemes $X = \spec A $ and $Y = \spec B$: 
-$$(^a \varphi, \tilde{\varphi}) \colon (\spec A, \mathcal {O}_{ \spec A}\to (\spec B, \mathcal{O}_{\spec B}, \; \text{where}$$
+A ring homomorphism $\varphi \colon B \to A$ gives rise to a morphism of affine schemes $X = \spec A $ and $Y = \spec B$: 
+$$(^a \varphi, \tilde{\varphi}) \colon (\spec A, \mathcal {O}_{ \spec A})\to (\spec B, \mathcal{O}_{\spec B}), \; \text{where}$$
 \begin{itemize}
 	\item $^a \varphi (x) = y$ if and only if $\mathfrak{j}_y = \varphi^{-1} (\mathfrak{j}_x)$ (i.e. $^a \varphi (\p) = \varphi^{-1} (\p))$;
 	\item $\tilde{\varphi} \colon \mathcal{O}_Y \to ^a \varphi_\ast \mathcal{O}_X$ is characterised by (for $g \in B$):
